@@ -1,0 +1,1 @@
+npm i react-hook-form react-helmet-async  axios sweetalert2 react-icons react-router-dom @tanstack/react-query react-hot-toast @nextui-org/react framer-motion react-firebase-hooks firebase
