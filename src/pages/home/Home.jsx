@@ -12,8 +12,8 @@ function Home() {
       <Helmet title='Home | Zero Exclusive Online Shop'/>
       <div className="m-auto max-w-6xl">
       <Banner />
-      <FlashSeles />
       <BrowseByCategory />
+      <FlashSeles />
       <BestSallingItems />
       <NewArrival />
       <TopService />

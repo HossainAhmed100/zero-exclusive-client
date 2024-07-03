@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
 
 // Import icons from assets folder
-import CameraIcon from "../../../assets/icons/camera.png";
-import PhonesIcon from "../../../assets/icons/cellPhone.png";
-import ComputerIcon from "../../../assets/icons/computer.png";
-import SmartWatchIcon from "../../../assets/icons/smartWatch.png";
-import HeadphoneIcon from "../../../assets/icons/headphone.png";
-import GamepadIcon from "../../../assets/icons/gamepad.png";
-
+import {Trouser, Tupi, Attar, TShirt, Jersey, Janamaz, Tasbih, Panjabi} from "../../../assets/SVGIcons/index";
 
 function BrowseByCategory() {
   return (
@@ -22,13 +16,15 @@ function BrowseByCategory() {
       </div>
       {/* Category cards */}
       <div className="w-full py-6">
-        <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-4">
-          <CategoryCard icon={PhonesIcon} title="Phones" path="/phones"/>
-          <CategoryCard icon={ComputerIcon} title="Computers" path="/computers"/>
-          <CategoryCard icon={SmartWatchIcon} title="SmartWatches" path="/smartwatches"/>
-          <CategoryCard icon={CameraIcon} title="Cameras" path="/cameras"/>
-          <CategoryCard icon={HeadphoneIcon} title="Headphones" path="/headphones"/>
-          <CategoryCard icon={GamepadIcon} title="Gaming" path="/gaming"/>
+        <div className="grid lg:grid-cols-8 md:grid-cols-6 grid-cols-4 gap-4">
+          <CategoryCard icon={<Trouser  width="50" height="50"/>} title="Trouser" path="/"/>
+          <CategoryCard icon={<Jersey  width="50" height="50"/>} title="Jersey" path="/"/>
+          <CategoryCard icon={<Panjabi  width="50" height="50"/>} title="Panjabi" path="/"/>
+          <CategoryCard icon={<Tupi  width="50" height="50"/>} title="Tupi" path="/"/>
+          <CategoryCard icon={<TShirt  width="50" height="50"/>} title="T-Shirt" path="/"/>
+          <CategoryCard icon={<Attar  width="50" height="50"/>} title="Attar" path="/"/>
+          <CategoryCard icon={<Janamaz  width="50" height="50"/>} title="Janamaz" path="/"/>
+          <CategoryCard icon={<Tasbih  width="50" height="50"/>} title="Tasbih" path="/"/>
         </div>
       </div>
     </div>
@@ -39,8 +35,9 @@ function BrowseByCategory() {
 const CategoryCard = ({ icon, title, path }) => {
   return (
     <Link to={path}>
-      <div className="rounded-sm border-1 hover:bg-gray-50 transform transition border-gray-300 py-4 px-6 flex flex-col items-center justify-center gap-2">
-        <img src={icon} alt={title} className="w-14 h-14"/>
+      <div className="rounded-lg border-1 hover:bg-gray-50 transform transition border-gray-300 py-4 px-6 flex flex-col items-center justify-center gap-2">
+        {icon}
+        {/* <img src={icon} alt={title} className="w-14 h-14"/> */}
         <span className="text-base text-gray-700 font-medium">{title}</span>
       </div>
     </Link>
