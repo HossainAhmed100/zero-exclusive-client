@@ -6,6 +6,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { VscSignOut, VscFeedback } from "react-icons/vsc";
 import Swal from "sweetalert2";
 import {auth} from "../../../firebase/firebase.config";
+import LogoImg from "../../../assets/icons/logo.png";
 import "./NavBar.css";
 
 
@@ -74,7 +75,7 @@ function NavBar() {
       {/* Brand logo and name */}
       <NavbarBrand>
         <Link href="/" color="foreground" className="flex items-center gap-2 justify-center">
-        <p className="font-bold text-xl">Zephyra</p>
+        <img src={LogoImg} alt="Logo" width="150" />
         </Link>
       </NavbarBrand>
     </NavbarContent>

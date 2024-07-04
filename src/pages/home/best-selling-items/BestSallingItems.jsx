@@ -19,13 +19,13 @@ function BestSallingItems() {
       <div className="flex items-center flex-row md:justify-between gap-6">
       <div className="pt-2 w-full flex flex-col items-start justify-start gap-6">
       <div className="flex items-center justify-start gap-4">
-        <div className="w-4 h-6 bg-blue-500 rounded-sm"></div>
-        <h2 className="text-blue-500 font-semibold text-lg">Tody's</h2>
+        <div className="w-4 h-6 bg-gray-500 rounded-sm"></div>
+        <h2 className="text-gray-500 font-semibold text-lg">Tody's</h2>
       </div>
-      <h1 className="text-3xl font-semibold">Beast Sales</h1>
+      <h1 className="text-3xl text-gray-900 font-semibold">Beast Sales</h1>
       </div>
       <div className="">
-        <Button radius="sm" size="sm" as={Link} href="/all-products" className="bg-blue-500 text-white font-medium" endContent={<FaArrowRight size={16}/>}>
+        <Button radius="sm" size="sm" as={Link} href="/all-products" className="bg-gray-900 text-white font-medium" endContent={<FaArrowRight size={16}/>}>
           View All
         </Button> 
       </div>
