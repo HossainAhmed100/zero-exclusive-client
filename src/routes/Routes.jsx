@@ -21,10 +21,6 @@ import CompanyLicensePage from "../pages/policy/CompanyLicensePage";
 import AdminDashboardPage from "../pages/admin/admin-dashboard/AdminDashboardPage";
 import EditProfilePage from "../pages/admin/profile/EditProfilePage";
 import TopSellingProductsPage from "../pages/admin/top-selling-products/TopSellingProductsPage";
-import Blog from "../pages/blog/Blog";
-import ReadBlogPage from "../pages/blog/ReadBlogPage";
-import PostNewBlog from "../pages/admin/blog/PostNewBlog";
-import UpdateBlog from "../pages/admin/blog/UpdateBlog";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +30,6 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
-      { path: "/blog", element: <Blog /> },
-      { path: "/blog/:id", element: <ReadBlogPage /> },
       { path: "/contact", element: <Contact /> },
       { path: "/all-products", element: <AllProductsPage /> },
       {
@@ -61,8 +55,6 @@ const router = createBrowserRouter([
       { path: "top-selling-products", element: <TopSellingProductsPage /> },
       { path: "my-profile", element: <ProfilePage /> },
       { path: "update-my-profile", element: <EditProfilePage /> },
-      { path: "post-new-blog", element: <PostNewBlog /> },
-      { path: "update-blog", element: <UpdateBlog /> },
       {
         path: "manage-products/update-product/:id",
         element: <EditProductPage />,

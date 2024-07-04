@@ -38,7 +38,7 @@ export default function EditProfilePage() {
                 {...register("firstName", { required: "Please enter your Name" })}
                 color={errors.firstName ? "danger" : "default"}
               />
-              {errors.firstName && <span className="text-blue-500 text-sm">{errors.firstName.message}</span>}
+              {errors.firstName && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
             </div>
             <div className="flex-1">
               <Input
@@ -55,7 +55,7 @@ export default function EditProfilePage() {
                 {...register("lastName", { required: "Please enter your Name" })}
                 color={errors.lastName ? "danger" : "default"}
               />
-              {errors.lastName && <span className="text-blue-500 text-sm">{errors.firstName.message}</span>}
+              {errors.lastName && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
             </div>
           </div>
           <div className="flex gap-4 md:flex-row flex-col">
@@ -74,7 +74,7 @@ export default function EditProfilePage() {
             {...register("email", { required: "Please enter your email", pattern: { value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, message: "Email is not valid" } })}
             color={errors.email ? "danger" : "default"}
           />
-          {errors.email && <span className="text-blue-500 text-sm">{errors.email.message}</span>}
+          {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
             </div>
             <div className="flex-1">
               <Input
@@ -100,7 +100,7 @@ export default function EditProfilePage() {
                 }})}
                 color={errors.phone ? "danger" : "default"}
               />
-              {errors.phone && <span className="text-blue-500 text-sm">{errors.phone.message}</span>}
+              {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
             </div>
           </div>
           <Input
@@ -117,8 +117,8 @@ export default function EditProfilePage() {
             {...register("address", { required: "Please enter your Name" })}
             color={errors.address ? "danger" : "default"}
           />
-          {errors.address && <span className="text-blue-500 text-sm">{errors.firstName.message}</span>}
-          <Button type="submit" className="w-44" color="primary">Save Changes</Button>
+          {errors.address && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
+          <Button type="submit" className="bg-gray-900 w-44 text-white shadow-lg">Save Changes</Button>
         </div>
         <div className="order-first md:order-last">
           <div className="flex items-center flex-col justify-center gap-4">

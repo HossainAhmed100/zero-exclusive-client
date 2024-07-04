@@ -86,7 +86,7 @@ function NavBar() {
         <NavLink to="/all-products">Product</NavLink>
       </NavbarItem>
       <NavbarItem>
-        <NavLink to="/blog">Blogs</NavLink>
+        <NavLink to="/all-products">Offers</NavLink>
       </NavbarItem>
       <NavbarItem>
         <NavLink to="/about">About</NavLink>
