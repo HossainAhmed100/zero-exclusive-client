@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram, FaYoutube  } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import LogoImg from "../../../assets/icons/logo.png";
 
 function Footer() {
   const getYear = () => {
@@ -25,15 +26,14 @@ return (
         <div className="flex flex-col gap-8 w-full px-4">
           <Link href="/" color="foreground">
           <div className="flex flex-col items-start gap-2 justify-center">
-            <p className="font-bold text-inherit text-xl">Zero Exclusive</p>
-            <p className="text-inherit text-base text-gray-400">Best Online Shop in Bangladesh</p>
+            <img src={LogoImg} alt="Logo" width="150" />
           </div>
           </Link>
           <div className="flex min-[470px]:flex-row items-center gap-3 w-full">
           <div className="relative  text-gray-500 focus-within:text-gray-900 max-sm:w-full">
             <Input
               type="email"
-              placeholder="support@zephyra.com"
+              placeholder="support@zero.com"
               startContent={
                 <HiOutlineMail size={24} color="gray"/> 
               }
