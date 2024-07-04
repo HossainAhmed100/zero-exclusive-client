@@ -36,7 +36,7 @@
   @keyframes pulseGreen {
     0%,
     100% {
-      color: blue;
+      color: black;
     }
   
     50% {
@@ -47,7 +47,7 @@
   @keyframes pulseRed {
     0%,
     100% {
-      color: blue;
+      color: black;
     }
   
     50% {

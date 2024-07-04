@@ -39,7 +39,7 @@ return (
               }
             />
           </div>
-          <Button radius="sm" size="md" color="primary">Subscribe</Button>
+          <Button radius="sm" size="md" className="bg-gray-900 text-white shadow-lg">Subscribe</Button>
           </div>
           <div className="flex items-start">
           <AvatarGroup
@@ -245,7 +245,7 @@ return (
         <div className="lg:text-left col-span-full md:col-span-1 lg:w-max">
           <div className="flex justify-between items-center mb-7 max-w-sm mx-auto">
             <h4 className="text-lg text-gray-900 font-medium">Product</h4>
-            <Button radius="sm" size="sm" variant="light" as={Link} href="/all-products" color="primary" endContent={<FaArrowRight size={16}/>}>
+            <Button radius="sm" size="sm" variant="light" as={Link} href="/all-products" color="default" endContent={<FaArrowRight size={16}/>}>
               View All
             </Button> 
           </div>

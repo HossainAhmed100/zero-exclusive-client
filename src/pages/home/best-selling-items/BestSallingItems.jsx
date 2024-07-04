@@ -20,7 +20,7 @@ function BestSallingItems() {
       <div className="pt-2 w-full flex flex-col items-start justify-start gap-6">
       <div className="flex items-center justify-start gap-4">
         <div className="w-4 h-6 bg-gray-500 rounded-sm"></div>
-        <h2 className="text-gray-500 font-semibold text-lg">Tody's</h2>
+        <h2 className="text-gray-500 font-medium text-lg">Tody's</h2>
       </div>
       <h1 className="text-3xl text-gray-900 font-semibold">Beast Sales</h1>
       </div>

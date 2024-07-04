@@ -100,7 +100,7 @@ function NavBar() {
       <NavbarContent justify="end">
         <NavbarItem className="flex">
           <Link color="foreground" href="/dashboard/myCart">
-            <Badge color="primary" content={0} shape="circle">
+            <Badge color="default" content={0} shape="circle">
               <FaCartShopping size={30}/>
             </Badge>
           </Link>

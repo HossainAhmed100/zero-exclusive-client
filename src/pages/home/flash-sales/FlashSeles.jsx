@@ -3,7 +3,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic"
 import { Button, Link } from "@nextui-org/react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import ProductCard from "../../../components/products/ProductCard";
-import OfferTimer from "../../../components/timer/OfferTimer";
+// import OfferTimer from "../../../components/timer/OfferTimer";
 
 function FlashSeles() {
   const axiosPublic = useAxiosPublic();
@@ -19,13 +19,13 @@ function FlashSeles() {
       <div className="flex md:items-center items-start md:flex-row flex-col md:justify-between gap-6">
       <div className="pt-2 order-last md:-order-last w-full flex flex-col items-start justify-start gap-6">
       <div className="flex items-center justify-start gap-4">
-        <div className="w-4 h-6 bg-blue-500 rounded-sm"></div>
-        <h2 className="text-blue-500 font-semibold text-lg">Tody's</h2>
+        <div className="w-4 h-6 bg-gray-500 rounded-sm"></div>
+        <h2 className="text-gray-500 font-medium text-lg">Tody's</h2>
       </div>
-      <h1 className="text-3xl font-semibold">Flash Sales</h1>
+      <h1 className="text-3xl text-gray-900 font-semibold">Flash Sales</h1>
       </div>
       <div className="w-full flex items-center justify-center py-6 md:py-0">
-      <OfferTimer duration={2 * 24 * 60 * 60 * 1000}/>
+      {/* <OfferTimer duration={2 * 24 * 60 * 60 * 1000}/> */}
       </div>
       </div>
 
@@ -33,7 +33,7 @@ function FlashSeles() {
         {products.map((item) => <ProductCard key={item?._id} product={item}/>)}
       </div>
       <div className="flex items-center justify-center py-6">
-        <Button radius="sm" as={Link} href="/all-products" className="bg-blue-500 text-white font-medium" endContent={<FaArrowRightLong size={18}/>}>
+        <Button radius="sm" as={Link} href="/all-products" className="bg-gray-900 text-white font-medium" endContent={<FaArrowRightLong size={18}/>}>
           View All Products
         </Button> 
       </div>
