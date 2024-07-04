@@ -133,7 +133,7 @@ const Login = () => {
                   color={errors.email ? "danger" : "default"}
                 />
                 {/* Error message for Email validation */}
-                {errors.email && <span className="text-blue-500 text-sm">{errors.email.message}</span>}
+                {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
                 {/* Input field for Password */}
                 <Input
                   radius="sm" 
@@ -153,22 +153,22 @@ const Login = () => {
                   color={errors.password ? "danger" : "default"}
                 />
                 {/* Error message for Password validation */}
-                {errors.password && <span className="text-blue-500 text-sm">{errors.password.message}</span>}
+                {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
                 {/* Remember me checkbox and Forgot Password link */}
                 <div className="flex items-center justify-between pb-3">
-                  <Checkbox size="sm" defaultChecked>Remember me</Checkbox>
-                  <Link className="text-sm text-blue-500 font-medium">
+                  <Checkbox size="sm" color="default" defaultChecked>Remember me</Checkbox>
+                  <Link className="text-sm text-gray-500 font-medium">
                     Forgot Password?
                   </Link>
                 </div>
                 {/* Login Form Submit button */}
-                <Button isLoading={loading} type="submit" color="primary">Sign in</Button>
+                <Button isLoading={loading} type="submit" className="bg-gray-900 text-white shadow-lg">Sign in</Button>
               </form> 
               {/* Register link */}
               <div className="flex flex-col items-center justify-center space-y-2 my-6">
                 <div className="flex items-center justify-center gap-1">
                   <p className="text-[12px]">Don't have an account?</p> 
-                  <Link href="/register" color="primary">Register now!</Link>
+                  <Link href="/register" className="font-medium" color="foreground">Register now!</Link>
                 </div>
               </div>
             </CardBody>

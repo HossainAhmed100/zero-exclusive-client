@@ -8,6 +8,8 @@ import { useState } from "react";
 import { FaChartPie, FaArrowRightFromBracket } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { MdAddBusiness, MdOutlineManageSearch } from "react-icons/md";
+import LogoImg from "../assets/icons/logo.png";
+
 
 function DashboardLayout() {
   // State to track the open/close status of the mobile menu
@@ -31,8 +33,8 @@ function DashboardLayout() {
                   <span className="sr-only">Open sidebar</span>
                   <ThreeLineIcon />
               </button>
-              <Link href="/" className="flex ms-2 md:me-24" color="foreground">
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-">Zephyra</span>
+              <Link href="/" color="foreground" className="flex items-center gap-2 justify-center">
+                <img src={LogoImg} alt="Logo" width="150" />
               </Link>
             </div>
             <div className="flex items-center">
@@ -135,7 +137,9 @@ function DashboardLayout() {
                   timer: 1500
                 });
             }
-          }} color="danger" startContent={<FaArrowRightFromBracket />}>
+          }}  
+          className="bg-gray-900 text-white shadow-lg" 
+          startContent={<FaArrowRightFromBracket />}>
           Sign Out
         </Button> 
         </div>

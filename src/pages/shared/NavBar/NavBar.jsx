@@ -139,7 +139,6 @@ function NavBar() {
               ],
             }}
           >
-            <DropdownSection aria-label="Profile & Actions" showDivider>
               <DropdownItem href="/dashboard" textValue="Dashboard" key="dashboard">
                 Dashboard
               </DropdownItem>
@@ -149,9 +148,6 @@ function NavBar() {
               <DropdownItem href="/dashboard/my-orders" textValue="My Profile" key="my-orders">
                 My Orders
               </DropdownItem>
-            </DropdownSection>  
-
-            <DropdownSection aria-label="Help & Feedback">
               <DropdownItem key="help_and_feedback" textValue="Help & Feedback" href="/contact"  startContent={<VscFeedback />}>
                 Help & Feedback
               </DropdownItem>
@@ -160,8 +156,7 @@ function NavBar() {
               onClick={handleLogOut} 
               key="logout" 
               startContent={<VscSignOut />}
-              >Log Out</DropdownItem>
-            </DropdownSection> 
+              >Log Out</DropdownItem> 
           </DropdownMenu>
         </Dropdown>
         </NavbarItem>
@@ -169,11 +164,11 @@ function NavBar() {
       <NavbarContent justify="end">
         {/* Login link, only visible on large screens */}
         <NavbarItem className="hidden lg:flex">
-          <Button as={Link} color="primary" variant="light" href="/login">Login</Button>
+          <Button as={Link} color="default" variant="ghost" radius="sm" href="/login">Login</Button>
         </NavbarItem>
         {/* Sign Up button */}
         <NavbarItem>
-        <Button as={Link} color="primary" href="/signup" variant="flat">
+        <Button as={Link} className="bg-gray-900 text-white shadow-lg" radius="sm" href="/signup" variant="flat">
           Sign Up
         </Button>
         </NavbarItem>

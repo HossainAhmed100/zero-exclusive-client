@@ -122,7 +122,7 @@ const Register = () => {
                   color={errors.fullName ? "danger" : "default"}
                 />
                 {/* Error message for Full Name validation */}
-                {errors.fullName && <span className="text-blue-500 text-sm">{errors.fullName.message}</span>}
+                {errors.fullName && <span className="text-red-500 text-sm">{errors.fullName.message}</span>}
                 {/* Input field for Phone Number */}
                 <Input
                   startContent={
@@ -144,7 +144,7 @@ const Register = () => {
                   color={errors.phone ? "danger" : "default"}
                 />
                 {/* Error message for Phone Number validation */}
-                {errors.phone && <span className="text-blue-500 text-sm">{errors.phone.message}</span>}
+                {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
                 {/* Input field for Email */}
                 <Input 
                   radius="sm" 
@@ -160,7 +160,7 @@ const Register = () => {
                   color={errors.email ? "danger" : "default"}
                 />
                 {/* Error message for Email validation */}
-                {errors.email && <span className="text-blue-500 text-sm">{errors.email.message}</span>}
+                {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
                 {/* Input field for Password */}
                 <Input
                   radius="sm" 
@@ -181,19 +181,19 @@ const Register = () => {
                   color={errors.password ? "danger" : "default"}
                 />
                 {/* Error message for Password validation */}
-                {errors.password && <span className="text-blue-500 text-sm">{errors.password.message}</span>}
+                {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
                 {/* Checkbox for accepting terms and conditions */}
                 <div className="flex items-center justify-between pb-3">
-                  <Checkbox size="sm" defaultChecked>Accept terms and conditions</Checkbox>
+                  <Checkbox color="default" size="sm" defaultChecked>Accept terms and conditions</Checkbox>
                 </div>
                 {/* Submit button */}
-                <Button isLoading={loading} type="submit" color="primary">Register now</Button>
+                <Button isLoading={loading} type="submit"  className="bg-gray-900 text-white shadow-lg">Register now</Button>
               </form> 
               {/* Login link */}
               <div className="flex flex-col items-center justify-center space-y-2 my-6">
                 <div className="flex items-center justify-center gap-1">
                   <p className="text-[12px]">Already have an account?</p> 
-                  <Link href="/login" color="primary">Login now!</Link>
+                  <Link href="/login" className="font-medium" color="foreground">Login now!</Link>
                 </div>
               </div>
             </CardBody>
