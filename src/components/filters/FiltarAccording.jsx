@@ -1,6 +1,6 @@
 import { Accordion, AccordionItem, CheckboxGroup, Checkbox, cn } from "@nextui-org/react";
 
-const FiltarAccording = ({ title, items }) => {
+const FiltarAccording = ({ keys, title, items }) => {
   // Define custom styles for the AccordionItem component
   const itemClasses = {
     base: "w-full",
@@ -11,8 +11,8 @@ const FiltarAccording = ({ title, items }) => {
   };
 
   return (
-    <Accordion itemClasses={itemClasses}>
-      <AccordionItem aria-label={title} title={title}>
+    <Accordion defaultExpandedKeys={[keys]} itemClasses={itemClasses}>
+      <AccordionItem key={keys} aria-label={title} title={title}>
         <CheckboxGroup>
           {items.map((item) => (
             <CustomCheckbox key={item.value} label={item?.label} value={item?.value} />

@@ -39,49 +39,23 @@ function AllProductsPage() {
     { label: "Up Coming", value: "upcoming" },
   ];
 
-  const filterBrand = [
-    { label: "HP", value: "hp" },
-    { label: "MSI", value: "msi" },
-    { label: "Asus", value: "asus" },
-    { label: "Acer", value: "acer" },
-    { label: "Dell", value: "dell" },
-    { label: "Apple", value: "apple" },
-    { label: "Infinix", value: "infinix" },
+  const filterSize = [
+    { label: "XL", value: "xl" },
+    { label: "L", value: "l" },
+    { label: "M", value: "m" },
+    { label: "S", value: "s" },
+    { label: "XS", value: "xs" },
   ];
 
-  const filterRamSize = [
-    { label: "4 GB", value: "4GB" },
-    { label: "8 GB", value: "8GB" },
-    { label: "16 GB", value: "16GB" },
-    { label: "32 GB", value: "32GB" },
-    { label: "64 GB", value: "64GB" },
-    { label: "128 GB", value: "128GB" },
+  const filterColors = [
+    { label: "Black", value: "black" },
+    { label: "White", value: "white" },
+    { label: "Red", value: "red" },
+    { label: "Blue", value: "blue" },
+    { label: "Gray", value: "gray" },
   ];
 
-  const filterRamType = [
-    { label: "DDR4", value: "DDR4" },
-    { label: "DDR5", value: "DDR5" },
-  ];
 
-  const filterDisplayType = [
-    { label: "LED", value: "led" },
-    { label: "OLED", value: "oled" },
-    { label: "AMOLED", value: "amoled" },
-  ];
-
-  const filterDisplaySize = [
-    { label: "13-Inch to 13.9-Inch", value: "13" },
-    { label: "14-Inch to 14.9-Inch", value: "14" },
-    { label: "15-Inch to 15.9-Inch", value: "15" },
-    { label: "16-Inch to 16.9-Inch", value: "16" },
-    { label: "17-Inch to 17.9-Inch", value: "17" },
-  ];
-
-  const filterProcessor = [
-    { label: "Intel", value: "intel" },
-    { label: "AMD", value: "amd" },
-    { label: "Apple", value: "apple" },
-  ];
 
   return (
     <section className="max-w-6xl p-4 m-auto">
@@ -126,25 +100,13 @@ function AllProductsPage() {
               </div>
             </div>
             <div className="bg-white shadow-sm w-64 rounded-md">
-              <FiltarAccording title="Availability" items={availabilityItems} />
+              <FiltarAccording keys={"1"} title="Availability" items={availabilityItems} />
             </div>
             <div className="bg-white shadow-sm w-64 rounded-md">
-              <FiltarAccording title="Brand" items={filterBrand} />
+              <FiltarAccording keys={"2"} title="Size" items={filterSize} />
             </div>
             <div className="bg-white shadow-sm w-64 rounded-md">
-              <FiltarAccording title="Processor Type" items={filterProcessor} />
-            </div>
-            <div className="bg-white shadow-sm w-64 rounded-md">
-              <FiltarAccording title="Display Size" items={filterDisplaySize} />
-            </div>
-            <div className="bg-white shadow-sm w-64 rounded-md">
-              <FiltarAccording title="Display Tupe" items={filterDisplayType} />
-            </div>
-            <div className="bg-white shadow-sm w-64 rounded-md">
-              <FiltarAccording title="Ram Type" items={filterRamType} />
-            </div>
-            <div className="bg-white shadow-sm w-64 rounded-md">
-              <FiltarAccording title="Ram Size" items={filterRamSize} />
+              <FiltarAccording keys={"3"} title="Colors" items={filterColors} />
             </div>
           </div>
         </aside>
