@@ -98,7 +98,7 @@ const ProductDetailsPage = () => {
                     type="button"
                     onClick={() => setSelectedColor(color)}
                     variant="flat"
-                    color={selectedColor === color ? "primary" : "default"}
+                    className={`${selectedColor === color ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-900'}`}
                   >
                     {color}
                   </Button>
@@ -115,7 +115,7 @@ const ProductDetailsPage = () => {
                     type="button"
                     onClick={() => setSelectedSize(size)}
                     variant="flat"
-                    color={selectedSize === size ? "primary" : "default"}
+                    className={`${selectedSize === size ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-900'}`}
                   >
                     {size}
                   </Button>
@@ -153,7 +153,7 @@ const ProductDetailsPage = () => {
               </div>
             </div>
             <div className="flex gap-2 lg:flex-row items-end justify-center">
-              <Button radius='sm' startContent={<FaCartShopping size={20}/>} type="submit" className="bg-blue-500 text-white flex-1" size="md">
+              <Button radius='sm' startContent={<FaCartShopping size={20}/>} type="submit" className="bg-black text-white flex-1" size="md">
                 Add To Cart
               </Button>
               <Button radius='sm' color='default' variant='flat' isIconOnly>

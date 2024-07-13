@@ -91,8 +91,6 @@ function AddProductPage() {
     { id: 100007, label: "Attar" },
     { id: 100008, label: "Tasbih" },
   ];
-  
-
 
   return (
     <section>
@@ -203,33 +201,22 @@ function AddProductPage() {
             <h1>Inventory</h1>
             <p className="text-xs text-gray-500">Enter the inventory details</p>
           </div>
-          <div className="p-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+          <div className="p-4 grid md:grid-cols-2 grid-cols-1 gap-4">
             <div>
             <Input
               type="number"
-              label="SKU"
+              label="Prodcut Code"
               variant="faded" 
               placeholder="12345678"
               labelPlacement="outside"
-              {...register("sku", { required: true })}
+              {...register("productCode", { required: true })}
             />
             {errors.sku && <span className="text-tiny text-red-500">This field is required</span>}
             </div>
             <div>
             <Input
               type="number"
-              label="Barcode"
-              variant="faded" 
-              placeholder="0943424547"
-              labelPlacement="outside"
-              {...register("barcode", { required: true })}
-            />
-            {errors.barcode && <span className="text-tiny text-red-500">This field is required</span>}
-            </div>
-            <div>
-            <Input
-              type="number"
-              label="Quantity"
+              label="Prodcut Stock Quantity"
               variant="faded" 
               placeholder="Type product quantity"
               labelPlacement="outside"

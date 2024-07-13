@@ -46,9 +46,11 @@ const Login = () => {
         try {
           // Send login data to backend API and receive JWT token
           const response = await axiosPublic.post('/auth/login', userData);
+          console.log("🚀 ~ onSubmit ~ response:", response)
           
           // Extract token from response
           const token = response.data.token;
+          console.log("🚀 ~ onSubmit ~ token:", token)
           
           // Store token in localStorage for future use
           localStorage.setItem('access-token', token);
@@ -82,6 +84,7 @@ const Login = () => {
   // Effect to handle and display authentication errors
   useEffect(() => {
     if (error) {
+      console.log("🚀 ~ useEffect ~ error:", error)
       let errorMessage;
       switch (error?.code) {
         case "auth/too-many-requests":
@@ -96,8 +99,6 @@ const Login = () => {
         case "auth/wrong-password":
           errorMessage = "Wrong password. Please try again!";
           break;
-        default:
-          errorMessage = "An unexpected error occurred. Please try again!";
       }
       Swal.fire({
         icon: "error",
@@ -116,7 +117,7 @@ const Login = () => {
             <CardBody>
               <form onSubmit={handleSubmit(onSubmit)} className="flex min-w-full flex-col mb-6 md:mb-0 gap-4">
                 <div>
-                  <h3 className="font-bold text-center text-2xl">SIGN IN</h3>
+                  <h3 className="font-bold text-center text-2xl">LOG IN</h3>
                 </div>
                 {/* Input field for Email */}
                 <Input 

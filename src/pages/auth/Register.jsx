@@ -39,9 +39,10 @@ const Register = () => {
     console.log("🚀 ~ onSubmit ~ data:", data);
     // Prepare the user data to be sent to the backend
     const userData = {
-      fullName: data.fullName,
+      name: data.fullName,
       email: data.email,
       phone: data.phone,
+      photoUrl: "https://avatar.iran.liara.run/public",
       password: data.password
     };
 

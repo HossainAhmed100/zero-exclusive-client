@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Badge, Button, DropdownSection, Link} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Badge, Button, Link} from "@nextui-org/react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { FaCartShopping } from "react-icons/fa6";
@@ -53,6 +53,7 @@ function NavBar() {
   const handleLogOut = async () => {
   const success = await signOut();
     if (success) {
+    localStorage.removeItem('access-token');
     navigate("/login")
     Swal.fire({
       position: "top-end",
@@ -168,7 +169,7 @@ function NavBar() {
         </NavbarItem>
         {/* Sign Up button */}
         <NavbarItem>
-        <Button as={Link} className="bg-gray-900 text-white shadow-lg" radius="sm" href="/signup" variant="flat">
+        <Button as={Link} className="bg-gray-900 text-white shadow-lg" radius="sm" href="/register" variant="flat">
           Sign Up
         </Button>
         </NavbarItem>
