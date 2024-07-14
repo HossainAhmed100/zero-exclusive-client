@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState, convertToRaw } from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import draftToHtml from "draftjs-to-html";
+import { useState } from "react";
 
 const TextEditor = () => {
   // Initialize state using useState hook
@@ -17,7 +17,7 @@ const TextEditor = () => {
   const htmlContent = draftToHtml(convertToRaw(editorState.getCurrentContent()));
 
   // Log the HTML content to the console (for debugging)
-  // console.log(htmlContent);
+  console.log(htmlContent);
 
   return (
     <div>

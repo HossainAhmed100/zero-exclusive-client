@@ -19,12 +19,12 @@ function SimilarProducts() {
       <div className="flex items-center flex-row md:justify-between gap-6">
       <div className="pt-2 w-full flex flex-col items-start justify-start gap-6">
       <div className="flex items-center justify-start gap-4">
-        <div className="w-4 h-6 bg-blue-500 rounded-sm"></div>
-        <h2 className="text-blue-500 font-semibold text-lg">Reletad items</h2>
+        <div className="w-4 h-6 bg-gray-500 rounded-sm"></div>
+        <h2 className="text-gray-500 font-semibold text-lg">Reletad items</h2>
       </div>
       </div>
       <div className="">
-        <Button radius="sm" size="sm"  className="bg-blue-500 text-white font-medium" endContent={<FaArrowRight size={16}/>}>
+        <Button radius="sm" size="sm"  className="bg-black text-white font-medium" endContent={<FaArrowRight size={16}/>}>
           View All
         </Button> 
       </div>

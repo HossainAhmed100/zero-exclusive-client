@@ -31,7 +31,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const columns = [
   {name: "Photo", uid: "thumbnail"},
-  {name: "NAME", uid: "model"},
+  {name: "Title", uid: "title"},
   {name: "Category", uid: "category"},
   {name: "Brand", uid: "brand"},
   {name: "Discount", uid: "discount", sortable: true},
@@ -52,7 +52,7 @@ const statusColorMap = {
   yes: "success",
 };
 
-const INITIAL_VISIBLE_COLUMNS = ["thumbnail", "model", "category", "brand", "discount", "rating", "price", "instock", "actions"];
+const INITIAL_VISIBLE_COLUMNS = ["thumbnail", "title", "category", "brand", "discount", "rating", "price", "instock", "actions"];
 
 export default function ManageProductsPage() {
   const [filterValue, setFilterValue] = React.useState("");
@@ -166,7 +166,7 @@ export default function ManageProductsPage() {
             </p>
           </div>
         );
-      case "model":
+      case "title":
         return (
           <div className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>

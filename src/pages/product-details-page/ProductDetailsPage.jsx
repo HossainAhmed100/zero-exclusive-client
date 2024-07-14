@@ -1,20 +1,18 @@
 import { useState } from 'react';
 import { FaPlus, FaMinus, FaStar, FaHeart } from 'react-icons/fa';
-import { Avatar, Button, Divider, Progress, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from '@nextui-org/react';
+import { Button, Divider} from '@nextui-org/react';
 import { FaCartShopping } from "react-icons/fa6";
-import { LuDot } from "react-icons/lu";
-import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
-import { HiOutlineDotsVertical } from "react-icons/hi";
-import { TbMessageReport } from "react-icons/tb";
 import { Helmet } from 'react-helmet-async';
 import SimilarProducts from '../../components/products/similar-products/SimilarProducts';
 import Breadcrumb from '../../components/breadcrumbs/BreadCrumbs';
+import { useLoaderData } from 'react-router-dom';
 
 const ProductDetailsPage = () => {
+  const {title, price, thumbnail, description, morePhotos} = useLoaderData();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState('XS');
   const [selectedColor, setSelectedColor] = useState('Red');
-  const [mainImage, setMainImage] = useState('https://i.ibb.co/mHQ61dS/playstations.png');
+  const [mainImage, setMainImage] = useState(thumbnail);
   const [selectedImage, setSelectedImage] = useState('https://i.ibb.co/mHQ61dS/playstations.png');
 
   const product = {
@@ -58,7 +56,7 @@ const ProductDetailsPage = () => {
             src={mainImage}
           />
           <div className="grid grid-cols-4 gap-2">
-            {product.images.map((img, index) => (
+            {morePhotos.map((img, index) => (
               <img 
                 key={index} 
                 alt={`product thumbnail ${index + 1}`} 
@@ -72,7 +70,7 @@ const ProductDetailsPage = () => {
       </div>
         <div className="grid gap-4 md:gap-6 items-start">
           <div className="grid gap-2">
-            <h1 className="font-bold text-3xl lg:text-4xl">{product.name}</h1>
+            <h1 className="font-bold text-3xl lg:text-4xl">{title}</h1>
             <div className="flex items-center">
               <span className="text-yellow-500 flex items-start justify-center gap-1">
                 <FaStar />
@@ -80,11 +78,11 @@ const ProductDetailsPage = () => {
                 <FaStar />
                 <FaStar />
               </span>
-              <span className="ml-2 text-gray-600">({product.reviews} Reviews) |</span>
+              <span className="ml-2 text-gray-600">({0} Reviews) |</span>
               <span className="ml-2 text-green-500">{product.availability}</span>
             </div>
-            <p className="text-2xl font-semibold">${commaSeparator(product.price)}</p>
-            <p>{product.description}</p>
+            <p className="text-2xl font-semibold">Tk. {commaSeparator(price)}</p>
+            <p>{description}</p>
           </div>
           <Divider className='text-gray-300'/>
           <form className="grid gap-6">
@@ -162,45 +160,25 @@ const ProductDetailsPage = () => {
             </div>
             
           </form>
-          <div className="grid gap-2 mt-2 ml-4">
+          
+        </div>
+    </div>
+    <div className='lg:py-16 md:py-8 py-4'>
+      <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
+        <div className='md:col-span-2 bg-white p-6 rounded-md shadow'>
+        <div className='w-full pb-6'><h1 className='text-gray-800 text-xl font-semibold'>Prodcut Description</h1></div>
+          <div>
+            {description}
+          </div>
+        </div>
+        <div className='flex flex-col h-fit gap-5 p-6'>
+        <div className="grid gap-2 mt-2 ml-4">
           <span className='text-base font-medium text-gray-700 underline'>Benefits</span>
           <ul className="list-disc">
               <li>Warranty included</li>
               <li>Free return within 30 days</li>
               <li>Damage and theft insurance</li>
             </ul>
-          </div>
-        </div>
-    </div>
-    <div className='lg:py-16 md:py-8 py-4'>
-      <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
-        <div className='md:col-span-2 bg-white p-6 rounded-md shadow'>
-          <div className='w-full pb-6'><h1 className='text-gray-800 text-xl font-semibold'>Reviews</h1></div>
-          <div>
-            <ReviewCard />
-            <ReviewCard />
-            <ReviewCard />
-          </div>
-        </div>
-        <div className='lg:order-1 flex flex-col h-fit gap-5 bg-white p-6 rounded-md shadow'>
-          <Button color="primary" variant="flat" className='w-full' radius='sm'>Write a review</Button>
-          <div className='flex items-center justify-normal gap-3'>
-            <div className='flex items-center justify-start gap-1'>
-              {[1,2,3,].map(item => <FaStar key={item} size={24} className='text-orange-400'/>)}
-              <FaStar size={24} className='text-gray-300'/>
-              <FaStar size={24} className='text-gray-300'/>
-            </div>
-            <div>
-              <span className='text-2xl text-black font-semibold mr-'>3.7</span>
-              <span className='text-[14px] text-gray-400 font-normal'> / 320 reviews</span>
-            </div>
-          </div>
-          <div className='flex items-start gap-3 flex-col w-full justify-normal'>
-            <RatingProgressBar number={5} rating={30}/>
-            <RatingProgressBar number={4} rating={40}/>
-            <RatingProgressBar number={3} rating={80}/>
-            <RatingProgressBar number={2} rating={70}/>
-            <RatingProgressBar number={1} rating={20}/>
           </div>
         </div>
       </div>
@@ -211,65 +189,6 @@ const ProductDetailsPage = () => {
     </div>
   );
 };
-
-const ReviewCard = () => {
-  return(
-    <div className='flex py-3 items-start gap-4 justify-normal'>
-      <div><Avatar isBordered src="https://i.pravatar.cc/150?u=a042581f4e29026024d" /></div>
-      <div className='flex flex-col items-start justify-center gap-2 w-full'>
-        <div className='flex items-center justify-between w-full'>
-          <div className='flex items-start justify-center flex-col gap-1'>
-            <h1 className='text-base text-gray-800 font-medium'>Hossain Ahmed</h1>
-            <div className='flex flex-col items-start justify-start md:flex-row gap-2'>
-              <div className='flex items-center justify-start gap-1'>
-                {[1,2,3,].map(item => <FaStar key={item} size={14} className='text-orange-300'/>)}
-                <FaStar size={14} className='text-gray-300'/>
-                <FaStar size={14} className='text-gray-300'/>
-              </div>
-              <div className='flex items-start  justify-start gap-2'>
-                <LuDot className='text-[14px] md:flex hidden text-gray-400'/>
-                <span className='text-tiny text-gray-500'>Wed, May 12</span>
-              </div>
-            </div>
-          </div>  
-          <div className='flex items-center justify-between gap-2'>
-            <Button isIconOnly variant='light' color='default'>
-              <IoMdThumbsUp size={16} className='text-gray-400'/> 
-            </Button>
-            <Button isIconOnly variant='light' color='default'>
-              <IoMdThumbsDown size={16} className='text-gray-400'/> 
-            </Button>
-          </div>
-        </div>
-        <p className='text-gray-500 text-[14px]'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tempora eius quos rem, ducimus dolor. Voluptatem, blanditiis animi tempora enim illo harum fugiat quaerat voluptatum.
-        </p>
-      </div>
-      <Dropdown placement='bottom-end'>
-        <DropdownTrigger>
-          <Button isIconOnly color='default' variant='light'>
-            <HiOutlineDotsVertical size={24} className='text-gray-400'/>
-          </Button>
-        </DropdownTrigger>
-        <DropdownMenu aria-label="Action event example" >
-          <DropdownItem startContent={<TbMessageReport />} key="reportAbuse">Report abouse</DropdownItem>
-        </DropdownMenu>
-    </Dropdown>
-    </div>
-  )
-}
-
-const RatingProgressBar = ({number, rating}) => {
-  return(
-    <div className='flex w-full items-center justify-normal gap-3'>
-      <div className='flex items-center w-10 justify-between gap-1'>
-        <span className='text-gray-400'>{number}</span> 
-        <FaStar className='text-gray-300'/>
-      </div> 
-      <Progress color="warning" aria-label="Loading..." value={rating} />
-    </div>
-  )
-}
 
 
 export default ProductDetailsPage;
