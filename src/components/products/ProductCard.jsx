@@ -8,10 +8,6 @@ function ProductCard({product}) {
       const result = Intl.NumberFormat("en-US",options).format(price);
       return result;
     }
-    const percentage = (discount, price) => {
-        const num = (100 * discount) / price;
-        return parseFloat(num).toFixed(2)
-    }
   return (
     <Link href={`/all-products/${_id}`}>
     <Card className="pb-4 bg-white hover:border-1 hover:border-gray-200 transition shadow-sm rounded-md duration-700 ease-in-out border-1 border-transparent">

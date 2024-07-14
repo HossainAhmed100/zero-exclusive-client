@@ -175,7 +175,7 @@ export default function ManageProductsPage() {
       case "rating":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-small capitalize">${cellValue}</p>
+            <p className="text-bold text-small capitalize">{cellValue}</p>
           </div>
         );
       case "brand":
@@ -193,13 +193,13 @@ export default function ManageProductsPage() {
       case "discount":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-small capitalize">${cellValue}</p>
+            <p className="text-bold text-small capitalize">Tk.{cellValue}</p>
           </div>
         );
       case "price":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-small capitalize">${cellValue}</p>
+            <p className="text-bold text-small capitalize">Tk.{cellValue}</p>
           </div>
         );
       case "instock":

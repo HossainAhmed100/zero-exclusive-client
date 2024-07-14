@@ -64,7 +64,7 @@ function NavBar() {
     });
   }};
   return (
-    <Navbar 
+    <Navbar classNames={{wrapper: "max-w-7xl"}}
     className={`transition-transform duration-300 transform ${show ? 'translate-y-0' : '-translate-y-full'}`} isBordered onMenuOpenChange={setIsMenuOpen} 
     >
     <NavbarContent >
@@ -100,7 +100,7 @@ function NavBar() {
     {user ? 
       <NavbarContent justify="end">
         <NavbarItem className="flex">
-          <Link color="foreground" href="/dashboard/myCart">
+          <Link color="foreground" href="/my-cart">
             <Badge color="default" content={0} shape="circle">
               <FaCartShopping size={30}/>
             </Badge>

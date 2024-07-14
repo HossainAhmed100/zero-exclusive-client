@@ -20,7 +20,7 @@ const {data: footerProducts = []} = useQuery({
 })
 return (
   <footer className="bg-white  border-t-1">
-    <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto px-4">
     <div className="grid grid-cols-1 min-[1130px]:grid-cols-12 gap-8 lg:gap-0 py-10 border-b-2 border-gray-200">
       <div className="min-[1130px]:col-span-5 col-span-1 w-full min-[1130px]:max-w-full mx-auto">
         <div className="flex flex-col gap-8 w-full px-4">

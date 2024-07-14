@@ -81,8 +81,7 @@ function AddProductPage() {
 
     try {
       const response = await axiosSecure.post('/products/addnewProduct', newProduct);
-      console.log("🚀 ~ handleProductUpload ~ response:", response)
-      if (response.data.status === 201) {
+      if (response.status === 201) {
         Swal.fire({
           icon: "success",
           title: "Product Added Successfully!",

@@ -21,6 +21,7 @@ import CompanyLicensePage from "../pages/policy/CompanyLicensePage";
 import AdminDashboardPage from "../pages/admin/admin-dashboard/AdminDashboardPage";
 import EditProfilePage from "../pages/admin/profile/EditProfilePage";
 import TopSellingProductsPage from "../pages/admin/top-selling-products/TopSellingProductsPage";
+import MyCart from "../pages/myCart/MyCart";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
+      { path: "/my-cart", element: <MyCart /> },
       { path: "/all-products", element: <AllProductsPage /> },
       {
         path: "/all-products/:productId",
