@@ -65,7 +65,6 @@ function NavBar() {
     localStorage.removeItem('access-token');
     navigate("/login")
     Swal.fire({
-      position: "top-end",
       icon: "success",
       title: "Logout Successfull",
       showConfirmButton: false,

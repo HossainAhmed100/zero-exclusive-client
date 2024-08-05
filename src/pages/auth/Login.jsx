@@ -5,13 +5,17 @@ import { HiEye, HiEyeOff } from "react-icons/hi";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword, useSignOut } from "react-firebase-hooks/auth";
 import {auth} from "../../firebase/firebase.config";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Login = () => {
   // Initialize Firebase Authentication hook
-  const [signInWithEmailAndPassword, loading, error] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, , error] = useSignInWithEmailAndPassword(auth);
+  const [loading, setLoading] = useState(false);
+
+  // Hook to sign out user
+  const [signOut] = useSignOut(auth);
 
   // State to manage password visibility
   const [isVisible, setIsVisible] = useState(false);
@@ -32,18 +36,22 @@ const Login = () => {
 
   // Function to handle form submission
   const onSubmit = async (data) => {
+    setLoading(true)
     // Prepare user data for login
     const userData = { email: data.email, password: data.password };
 
     try {
+      setLoading(true)
       // Sign in user with Firebase Authentication
       const result = await signInWithEmailAndPassword(data.email, data.password);
+      console.log("🚀 ~ onSubmit ~ result:", result)
       
       if (result) {
         // Log user information for debugging purposes
         console.log(result.user);
         
         try {
+          setLoading(true)
           // Send login data to backend API and receive JWT token
           const response = await axiosPublic.post('/auth/login', userData);
           console.log("🚀 ~ onSubmit ~ response:", response)
@@ -64,6 +72,8 @@ const Login = () => {
           // Redirect user to the specified 'from' path
           navigate(from, { replace: true });
         } catch (axiosError) {
+          setLoading(false)
+          signOut()
           // Handle Axios request errors
           console.error('Axios error:', axiosError);
           
@@ -76,6 +86,7 @@ const Login = () => {
         }
       }
     } catch (error) {
+      setLoading(false)
       // Handle Firebase Authentication errors
       console.error('Login Error:', error);
     }
@@ -84,7 +95,6 @@ const Login = () => {
   // Effect to handle and display authentication errors
   useEffect(() => {
     if (error) {
-      console.log("🚀 ~ useEffect ~ error:", error)
       let errorMessage;
       switch (error?.code) {
         case "auth/too-many-requests":
@@ -100,11 +110,13 @@ const Login = () => {
           errorMessage = "Wrong password. Please try again!";
           break;
       }
+      if(errorMessage){
       Swal.fire({
         icon: "error",
         title: "Authentication Error",
         text: errorMessage,
       });
+      }
     }
   }, [error]);
 
