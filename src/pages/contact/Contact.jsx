@@ -15,19 +15,18 @@ function Contact() {
   };
 
   return (
-    <section className="min-h-screen bg-white">
-      
+    <section className="bg-white">
       <Helmet title='Contact | Zero Exclusive Online Shop'/>
-      <div className="max-w-6xl m-auto py-6 px-4">
-      <div className="pb-4"><Breadcrumb /></div>
+      <div className="max-w-7xl mx-auto py-24 px-4">
+        <div className="pb-4"><Breadcrumb /></div>
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Contact Information Card */}
-          <Card className="min-h-[450px] rounded-sm shadow-sm">
+          <Card className="rounded-sm shadow-none">
             <CardBody>
               {/* Call Us Section */}
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-start gap-3">
-                  <Button isIconOnly color="primary" variant="flat">
+                  <Button isIconOnly color="default" variant="flat">
                     <MdOutlineCall size={24} />
                   </Button>
                   <h1 className="text-lg font-medium text-gray-800">Call To Us</h1>
@@ -37,9 +36,9 @@ function Contact() {
               </div>
 
               {/* Write To Us Section */}
-              <div className="flex flex-col gap-4">
+              <div className="flex mt-4 flex-col gap-4">
                 <div className="flex items-center justify-start gap-3">
-                <Button isIconOnly color="primary" variant="flat">
+                <Button isIconOnly color="default" variant="flat">
                     <MdOutlineMail size={24} />
                   </Button>
                   <h1 className="text-lg font-medium text-gray-800">Write To Us</h1>
@@ -72,7 +71,7 @@ function Contact() {
                     {...register("fullName", { required: "Please enter your Name" })}
                     color={errors.fullName ? "danger" : "default"}
                   />
-                  {errors.fullName && <span className="text-blue-500 text-sm">{errors.fullName.message}</span>}
+                  {errors.fullName && <span className="text-red-500 text-sm">{errors.fullName.message}</span>}
                 </div>
                 <div className="flex-1">
                   <Input
@@ -98,7 +97,7 @@ function Contact() {
                     }})}
                     color={errors.phone ? "danger" : "default"}
                   />
-                  {errors.phone && <span className="text-blue-500 text-sm">{errors.phone.message}</span>}
+                  {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
                 </div>
               </div>
               <Input
@@ -115,9 +114,10 @@ function Contact() {
                 {...register("email", { required: "Please enter your email", pattern: { value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, message: "Email is not valid" } })}
                 color={errors.email ? "danger" : "default"}
               />
-              {errors.email && <span className="text-blue-500 text-sm">{errors.email.message}</span>}
+              {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
               <Textarea
                 isRequired
+                radius="sm"
                 label="Your Message"
                 labelPlacement="outside"
                 placeholder="Write something..."
@@ -129,8 +129,8 @@ function Contact() {
                 color={errors.customerMessage ? "danger" : "default"}
                 errorMessage={errors.customerMessage && "Please write your message."}
               />
-              {errors.customerMessage && <span className="text-blue-500 text-sm">{errors.customerMessage.message}</span>}
-              <Button type="submit" color="primary" variant="solid">Send Message</Button>
+              {errors.customerMessage && <span className="text-red-500 text-sm">{errors.customerMessage.message}</span>}
+              <Button type="submit" className="bg-gray-900 text-white shadow-lg" variant="solid">Send Message</Button>
             </form>
           </div>
         </div>

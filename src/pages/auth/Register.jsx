@@ -42,7 +42,7 @@ const Register = () => {
       name: data.fullName,
       email: data.email,
       phone: data.phone,
-      photoUrl: "https://avatar.iran.liara.run/public",
+      address: "",
       password: data.password
     };
 

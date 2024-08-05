@@ -10,7 +10,7 @@ function Home() {
   return (
     <main>
       <Helmet title='Home | Zero Exclusive Online Shop'/>
-      <div className="m-auto max-w-6xl">
+      <div className="m-auto max-w-7xl">
       <Banner />
       <BrowseByCategory />
       <FlashSeles />

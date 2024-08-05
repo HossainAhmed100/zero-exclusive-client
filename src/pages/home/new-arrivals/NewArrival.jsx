@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function NewArrival() {
   return (
     <div className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
-      <div className="m-auto max-w-6xl px-4 md:px-8">
+      <div className="m-auto max-w-7xl">
         <div className="mb-4 sm:mb-6 md:mb-10">
           <div className="flex items-center justify-start gap-4">
             <div className="w-4 h-6 bg-gray-500 rounded-sm"></div>

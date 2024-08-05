@@ -95,7 +95,7 @@ function DashboardLayout() {
               </li>
               <li>
               <NavLink
-                to="my-profile"
+                to={`my-profile/${user?.email}`}
                 className={({isActive}) => 
                     `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
                   } end>
@@ -103,20 +103,6 @@ function DashboardLayout() {
                   <>
                   <FaUser color={isActive ? "#363636" : "#6b7280"} size={18}/>
                   <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>My Account</span>
-                  </>
-                )}
-              </NavLink>
-              </li>
-              <li>
-              <NavLink
-                to="update-my-profile"
-                className={({isActive}) => 
-                    `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
-                  } end>
-                {({ isActive }) => (
-                  <>
-                  <FaUser color={isActive ? "#363636" : "#6b7280"} size={18}/>
-                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>Profile setting</span>
                   </>
                 )}
               </NavLink>

@@ -49,6 +49,15 @@ function NavBar() {
   // Hook to sign out user
   const [signOut] = useSignOut(auth);
 
+  const cartItem = () => {
+    const item = localStorage.getItem('cart');
+    if (item) {
+      return JSON.parse(item).length;
+    } else {
+      return 0;
+    }
+  }
+
   // Function to handle user logout
   const handleLogOut = async () => {
   const success = await signOut();
@@ -87,9 +96,6 @@ function NavBar() {
         <NavLink to="/all-products">Product</NavLink>
       </NavbarItem>
       <NavbarItem>
-        <NavLink to="/all-products">Offers</NavLink>
-      </NavbarItem>
-      <NavbarItem>
         <NavLink to="/about">About</NavLink>
       </NavbarItem>
       <NavbarItem>
@@ -101,7 +107,7 @@ function NavBar() {
       <NavbarContent justify="end">
         <NavbarItem className="flex">
           <Link color="foreground" href="/my-cart">
-            <Badge color="default" content={0} shape="circle">
+            <Badge color="default" content={cartItem()} shape="circle">
               <FaCartShopping size={30}/>
             </Badge>
           </Link>
@@ -143,7 +149,7 @@ function NavBar() {
               <DropdownItem href="/dashboard" textValue="Dashboard" key="dashboard">
                 Dashboard
               </DropdownItem>
-              <DropdownItem href="/dashboard/my-profile" textValue="My Profile" key="my-profile">
+              <DropdownItem href={`/dashboard/my-profile/${user?.email}`} textValue="My Profile" key="my-profile">
                 My Profile
               </DropdownItem>
               <DropdownItem href="/dashboard/my-orders" textValue="My Profile" key="my-orders">

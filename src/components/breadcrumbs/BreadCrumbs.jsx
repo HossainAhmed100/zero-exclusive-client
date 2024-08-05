@@ -39,7 +39,7 @@ const Breadcrumb = () => {
 
           let title = breadcrumb.title;
           if (breadcrumb.regex && breadcrumb.regex.test(routeTo)) {
-            title = productData ? productData.model : 'Loading...';
+            title = productData ? productData.title : 'Loading...';
           }
           
           const isLast = index === pathnames.length - 1;

@@ -13,7 +13,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
           <RouterProvider router={router} />
-          <Toaster />
+          <Toaster
+            position="bottom-right"
+            reverseOrder={false}
+          />
       </HelmetProvider>
     </QueryClientProvider>
   </React.StrictMode>,

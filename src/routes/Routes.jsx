@@ -12,7 +12,6 @@ import PrivateRoutes from "./PrivateRoutes";
 import DashboardLayout from "../layout/DashboardLayout";
 import AddProductPage from "../pages/admin/add-product/AddProductPage";
 import ManageProductsPage from "../pages/admin/manage-product/ManageProductsPage";
-import ProfilePage from "../pages/admin/profile/ProfilePage";
 import EditProductPage from "../pages/admin/edit-product/EditProductPage";
 import CookiesPolicyPage from "../pages/policy/CookiesPolicyPage";
 import TermsAndConditionsPage from "../pages/policy/TermsAndConditionsPage";
@@ -22,6 +21,8 @@ import AdminDashboardPage from "../pages/admin/admin-dashboard/AdminDashboardPag
 import EditProfilePage from "../pages/admin/profile/EditProfilePage";
 import TopSellingProductsPage from "../pages/admin/top-selling-products/TopSellingProductsPage";
 import MyCart from "../pages/myCart/MyCart";
+import ConfirmOrder from "../pages/confirm-order/ConfirmOrder";
+import fetchWithHeaders from "../utils/fetchWithHeaders";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/my-cart", element: <MyCart /> },
+      { path: "/confirm-order", element: <ConfirmOrder /> },
       { path: "/all-products", element: <AllProductsPage /> },
       {
         path: "/all-products/:productId",
@@ -55,12 +57,15 @@ const router = createBrowserRouter([
       { path: "add-new-product", element: <AddProductPage /> },
       { path: "manage-products", element: <ManageProductsPage /> },
       { path: "top-selling-products", element: <TopSellingProductsPage /> },
-      { path: "my-profile", element: <ProfilePage /> },
-      { path: "update-my-profile", element: <EditProfilePage /> },
+      { 
+        path: "my-profile/:email", 
+        element: <EditProfilePage />,
+        loader: ({ params }) => fetchWithHeaders(`http://localhost:5000/api/users/${params.email}`),
+      },
       {
         path: "manage-products/update-product/:id",
         element: <EditProductPage />,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/products/productsById/${params.id}`),
+        loader: ({ params }) => fetchWithHeaders(`http://localhost:5000/api/products/productsById/${params.id}`),
       },
     ],
   },

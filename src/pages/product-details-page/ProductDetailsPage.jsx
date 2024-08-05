@@ -6,9 +6,10 @@ import { Helmet } from 'react-helmet-async';
 import SimilarProducts from '../../components/products/similar-products/SimilarProducts';
 import Breadcrumb from '../../components/breadcrumbs/BreadCrumbs';
 import { useLoaderData } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const ProductDetailsPage = () => {
-  const {title, price, thumbnail, description, morePhotos} = useLoaderData();
+  const {title, price, thumbnail, description, morePhotos, _id} = useLoaderData();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState('XS');
   const [selectedColor, setSelectedColor] = useState('Red');
@@ -16,20 +17,9 @@ const ProductDetailsPage = () => {
   const [selectedImage, setSelectedImage] = useState('https://i.ibb.co/mHQ61dS/playstations.png');
 
   const product = {
-    name: 'Havic HV G-92 Gamepad',
-    price: 192,
-    rating: 4.5,
-    reviews: 150,
     availability: 'In Stock',
-    description: 'Playstation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
     colors: ['Red', 'Black', 'Blue'],
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
-    images: [
-      'https://i.ibb.co/mHQ61dS/playstations.png',
-      'https://i.ibb.co/3s7hJKD/laptop.png',
-      'https://i.ibb.co/92nThYH/dfdf.jpg',
-      'https://i.ibb.co/mHQ61dS/playstations.png'
-    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL']
   };
 
   const handleQuantityChange = (change) => {
@@ -40,10 +30,21 @@ const ProductDetailsPage = () => {
     return new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(price);
   };
 
+  const handleAddToCard = () => {
+    const oldCart = JSON.parse(localStorage.getItem('cart')) || [];
+    const size = selectedSize;
+    const color = selectedColor;
+    const item = { color, size, thumbnail, price, quantity, title, _id};
+    const cart = [...oldCart, item];
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    toast.success('Successfully Added!')
+  };
+
 
   return (
-    <div className='max-w-6xl px-4 mx-auto py-10'>
-    <Helmet title={`${product?.name} | Zephyra Online Shop`}/>
+    <div className='max-w-7xl px-4 mx-auto py-10'>
+    <Helmet title={`${title} | Zephyra Online Shop`}/>
     <div className="pb-8">
         <Breadcrumb />
       </div>
@@ -151,7 +152,7 @@ const ProductDetailsPage = () => {
               </div>
             </div>
             <div className="flex gap-2 lg:flex-row items-end justify-center">
-              <Button radius='sm' startContent={<FaCartShopping size={20}/>} type="submit" className="bg-black text-white flex-1" size="md">
+              <Button onPress={() => handleAddToCard()} radius='sm' startContent={<FaCartShopping size={20}/>} type="submit" className="bg-black text-white flex-1" size="md">
                 Add To Cart
               </Button>
               <Button radius='sm' color='default' variant='flat' isIconOnly>

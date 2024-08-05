@@ -9,7 +9,7 @@ function PrivateRoutes({children}) {
   const location = useLocation();
   if(loading){
     return <div className="flex item-center justify-center w-full min-h-screen">
-    <Spinner size="lg" />
+    <Spinner size="lg" color='default'/>
     </div>;
   }
   if(user){

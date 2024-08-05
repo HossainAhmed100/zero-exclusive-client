@@ -20,8 +20,8 @@ function TopService() {
               />
               <InfoCard 
                 icon={<LuShieldCheck size={24} color="white" />} 
-                title={"MONEY BACK GUARANTEE"} 
-                description={"We return money within 30 days"} 
+                title={"EASY RETURNS AND EXCHANGES"} 
+                description={"Hassle-Free Returns and Exchanges"} 
               />
             </div>
           </div>
