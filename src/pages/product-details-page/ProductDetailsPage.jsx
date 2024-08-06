@@ -7,9 +7,10 @@ import SimilarProducts from '../../components/products/similar-products/SimilarP
 import Breadcrumb from '../../components/breadcrumbs/BreadCrumbs';
 import { useLoaderData } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { generateRandomKey } from '../../utils/randomKeyGenerator/randomKeyGenerator';
 
 const ProductDetailsPage = () => {
-  const {title, price, thumbnail, description, morePhotos, _id} = useLoaderData();
+  const {title, price, thumbnail, description, morePhotos, _id, brand, sku, category} = useLoaderData();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState('XS');
   const [selectedColor, setSelectedColor] = useState('Red');
@@ -30,15 +31,16 @@ const ProductDetailsPage = () => {
     return new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(price);
   };
 
-  const handleAddToCard = () => {
+  const handleAddToCard = (e) => {
+    const newKy = generateRandomKey();
+    const attributes = {color: selectedColor, size: selectedSize};
+    const item = { itemKey: newKy ,title, productId: _id, brand, category, price, sku, quantity, thumbnail, attributes};
     const oldCart = JSON.parse(localStorage.getItem('cart')) || [];
-    const size = selectedSize;
-    const color = selectedColor;
-    const item = { color, size, thumbnail, price, quantity, title, _id};
     const cart = [...oldCart, item];
     localStorage.setItem('cart', JSON.stringify(cart));
-
+    
     toast.success('Successfully Added!')
+    // e.preventDefault();
   };
 
 

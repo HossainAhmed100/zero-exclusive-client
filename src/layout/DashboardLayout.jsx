@@ -9,7 +9,7 @@ import { FaChartPie, FaArrowRightFromBracket } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { MdAddBusiness, MdOutlineManageSearch } from "react-icons/md";
 import LogoImg from "../assets/icons/logo.png";
-
+import { FiPackage } from "react-icons/fi";
 
 function DashboardLayout() {
   // State to track the open/close status of the mobile menu
@@ -61,6 +61,34 @@ function DashboardLayout() {
                   <>
                   <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={20}/>
                   <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>Dashboard</span>
+                  </>
+                )}
+              </NavLink>
+              </li>
+              <li>
+              <NavLink
+                to="all-orders"
+                className={({isActive}) => 
+                  `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
+                } end>
+                {({ isActive }) => (
+                  <>
+                  <FiPackage color={isActive ? "#363636" : "#6b7280"} size={20}/>
+                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>All Orders</span>
+                  </>
+                )}
+              </NavLink>
+              </li>
+              <li>
+              <NavLink
+                to="my-orders"
+                className={({isActive}) => 
+                  `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
+                } end>
+                {({ isActive }) => (
+                  <>
+                  <FiPackage color={isActive ? "#363636" : "#6b7280"} size={20}/>
+                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>My Orders</span>
                   </>
                 )}
               </NavLink>

@@ -23,6 +23,8 @@ import TopSellingProductsPage from "../pages/admin/top-selling-products/TopSelli
 import MyCart from "../pages/myCart/MyCart";
 import ConfirmOrder from "../pages/confirm-order/ConfirmOrder";
 import fetchWithHeaders from "../utils/fetchWithHeaders";
+import MyOrders from "../pages/my-orders/MyOrders";
+import AllOrders from "../pages/admin/sales/AllOrders";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/all-products/:productId",
         element: <ProductDetailsPage />,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/products/productsById/${params.productId}`),
+        loader: ({ params }) => fetch(`https://zeroexclusiveserver.phonebik.com/api/products/productsById/${params.productId}`),
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
@@ -57,15 +59,17 @@ const router = createBrowserRouter([
       { path: "add-new-product", element: <AddProductPage /> },
       { path: "manage-products", element: <ManageProductsPage /> },
       { path: "top-selling-products", element: <TopSellingProductsPage /> },
+      { path: "my-orders", element: <MyOrders /> },
+      { path: "all-orders", element: <AllOrders /> },
       { 
         path: "my-profile/:email", 
         element: <EditProfilePage />,
-        loader: ({ params }) => fetchWithHeaders(`http://localhost:5000/api/users/${params.email}`),
+        loader: ({ params }) => fetchWithHeaders(`https://zeroexclusiveserver.phonebik.com/api/users/${params.email}`),
       },
       {
-        path: "manage-products/update-product/:id",
+        path: "manage-products/update-product/:productId",
         element: <EditProductPage />,
-        loader: ({ params }) => fetchWithHeaders(`http://localhost:5000/api/products/productsById/${params.id}`),
+        loader: ({ params }) => fetchWithHeaders(`https://zeroexclusiveserver.phonebik.com/api/products/productsById/${params.productId}`),
       },
     ],
   },

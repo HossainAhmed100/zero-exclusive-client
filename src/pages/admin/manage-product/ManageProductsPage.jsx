@@ -217,7 +217,7 @@ export default function ManageProductsPage() {
             </Link>
           </Tooltip>
           <Tooltip content="Edit">
-            <Link href={`update-product/${item?._id}`} color="foreground">
+            <Link href={`manage-products/update-product/${item?._id}`} color="foreground">
               <BiEditAlt />
             </Link>
           </Tooltip>

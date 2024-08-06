@@ -5,7 +5,7 @@ import { useSignOut } from "react-firebase-hooks/auth";
 import {auth} from "../firebase/firebase.config";
 
 const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000/api"
+    baseURL: "https://zeroexclusiveserver.phonebik.com/api"
 })
 
 const useAxiosSecure = () => {

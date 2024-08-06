@@ -16,9 +16,9 @@ function MyCart() {
         setTotalPrice(total);
     };
 
-    const handleQuantityChange = (productId, change) => {
+    const handleQuantityChange = (itemKey, change) => {
         const updatedCart = myCart.map(item => {
-            if (item._id === productId) {
+            if (item.itemKey === itemKey) {
                 return { ...item, quantity: Math.max(1, item.quantity + change) };
             }
             return item;
@@ -27,8 +27,8 @@ function MyCart() {
         localStorage.setItem('cart', JSON.stringify(updatedCart));
     };
 
-    const handleRemoveItem = (productId) => {
-        const updatedCart = myCart.filter(item => item.productId !== productId);
+    const handleRemoveItem = (itemKey) => {
+        const updatedCart = myCart.filter(item => item.itemKey !== itemKey);
         setMyCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
     };
@@ -53,7 +53,7 @@ function MyCart() {
                                         handleRemoveItem={handleRemoveItem}
                                         handleQuantityChange={handleQuantityChange}
                                         commaSeparator={commaSeparator}
-                                        key={item._id}
+                                        key={item.itemKey}
                                         item={item}
                                     />
                                 ))}
@@ -93,14 +93,21 @@ const ItemCard = ({ item, commaSeparator, handleQuantityChange, handleRemoveItem
                     <div className="w-48">
                         <h1 className="text-base text-ellipsis line-clamp-2 font-normal text-gray-700">{item.title}</h1>
                     </div>
-                    <div><span className="text-tiny text-gray-400">Color: {item.color} Sizes: {item.size}</span></div>
+                    <div>
+            <span className="text-tiny text-gray-400">{Object.entries(item.attributes).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+              ))}
+            </span>
+            </div>
                 </div>
             </div>
             <div className="flex items-center justify-center gap-3">
                 <div className="flex items-center gap-2 border-2 rounded-md border-gray-300">
                     <Button
                         type="button"
-                        onClick={() => handleQuantityChange(item._id, -1)}
+                        onClick={() => handleQuantityChange(item.itemKey, -1)}
                         radius="sm"
                         isIconOnly
                         color="default"
@@ -113,7 +120,7 @@ const ItemCard = ({ item, commaSeparator, handleQuantityChange, handleRemoveItem
                     <span className='px-4 w-12 text-center'>{item.quantity}</span>
                     <Button
                         type="button"
-                        onClick={() => handleQuantityChange(item._id, 1)}
+                        onClick={() => handleQuantityChange(item.itemKey, 1)}
                         radius="sm"
                         isIconOnly
                         color="default"
@@ -130,7 +137,7 @@ const ItemCard = ({ item, commaSeparator, handleQuantityChange, handleRemoveItem
                 </div>
             </div>
             <div>
-                <Button onClick={() => handleRemoveItem(item._id)} radius="sm" color="danger" variant="flat" size="md">
+                <Button onClick={() => handleRemoveItem(item.itemKey)} radius="sm" color="danger" variant="flat" size="md">
                     <span>Remove</span>
                 </Button>
             </div>
